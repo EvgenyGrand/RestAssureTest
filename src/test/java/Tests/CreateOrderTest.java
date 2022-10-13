@@ -1,4 +1,4 @@
-package User.сreateUser;
+package Tests;
 
 import dto.UserOrder;
 import io.restassured.module.jsv.JsonSchemaValidator;
