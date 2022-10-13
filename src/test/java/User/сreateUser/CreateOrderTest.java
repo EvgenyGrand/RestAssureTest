@@ -1,6 +1,7 @@
 package User.сreateUser;
 
 import dto.UserOrder;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import org.junit.jupiter.api.Test;
 import services.UserOrderApi;
 
@@ -21,6 +22,7 @@ public class CreateOrderTest {
                 .build();
 
         userApi.createOrder(user)
+                .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema/CreateOrder.json"))
                 .statusCode(200)
                 .body("id",equalTo(1))
                 .body("petId",equalTo(2))
